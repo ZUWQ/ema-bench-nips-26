@@ -1,4 +1,9 @@
 import './App.css'
+import paperPdfUrl from './EMA_Bench.pdf?url'
+import overviewImageUrl from './picture/overview.jpg?url'
+import agentframeworkImageUrl from './picture/framework.jpg?url'
+import environmentassetsImageUrl from './picture/assets_rooms.jpg?url'
+import npcassetsImageUrl from './picture/assets_npc.png?url'
 
 const demonstrationVideo =
   'https://ema-benchmark.oss-cn-beijing.aliyuncs.com/demonstration.webm'
@@ -16,9 +21,23 @@ const principles = [
     title: 'Partial observability',
     body: 'Agents operate from local views and must build shared situational awareness through exploration.',
   },
+]
+// 3 Rigorous Properties (Sec 1 / Sec 3.1.2)
+const challenges = [
   {
-    title: 'Coordinated intervention',
-    body: 'Teams must allocate roles, avoid redundant work, and complete urgent objectives across space and time.',
+    number: '01',
+    title: 'Dynamic Hazard Processes',
+    body: 'The environment possesses an intrinsic engine that drives monotonic degradation independent of agent actions. [cite: 56]',
+  },
+  {
+    number: '02',
+    title: 'Rapidly Cumulative Escalation',
+    body: 'A "snowball effect" where hazard severity compounds over time; early delays result in disproportionately higher costs. [cite: 57, 60]',
+  },
+  {
+    number: '03',
+    title: 'Interactive Path-Dependency',
+    body: "Future trajectories are not pre-determined but jointly reshaped by autonomous progression and agent interventions. [cite: 82]",
   },
 ]
 
@@ -55,7 +74,7 @@ function App() {
           EMA-Bench
         </a>
         <nav>
-          <a href="#platform">Platform</a>
+          <a href="#challenge">Challenges</a>
           <a href="#evaluation">Evaluation</a>
           <a href="#findings">Findings</a>
           <a href="#contributions">Contributions</a>
@@ -74,73 +93,126 @@ function App() {
         />
         <div className="hero-shade" />
         <div className="hero-content">
-          <p className="eyebrow">Embodied Multi-Agent Decision-Making</p>
-          <h1>EMA-Bench</h1>
+        <p className="eyebrow">NeurIPS 2026 Anonymous Submission</p>
+        <h1>EMA-Bench</h1>
           <p className="hero-copy">
-            A high-fidelity simulation benchmark for evaluating how embodied
-            agent teams perceive, reason, and coordinate in dynamic disaster
-            response environments.
+            {/* Decision-making in dynamic environments with propagating and compounding hazards, where environmental changes occur independently of agent intervention. */}
+            A Benchmark for Embodied Multi-Agent Decision-Making in Dynamic Environments
           </p>
           <div className="hero-actions" aria-label="Primary links">
-            <a href="#video" className="primary-link">
-              Watch Demonstration
+            <a
+              href={paperPdfUrl}
+              className="primary-link"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Paper&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
             </a>
-            <a href="#evaluation" className="secondary-link">
-              View Evaluation
+            <a href="https://anonymous.4open.science/r/ema-bench-nips-26-4E30" className="secondary-link">
+              &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Code&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+            </a>
+            <a href="https://huggingface.co/datasets/EMAS4Rescue/ema-bench-26" className="primary-link">
+              Dataset&Simulator
             </a>
           </div>
         </div>
       </section>
 
-      <section className="overview band">
+{/* Abstract*/}
+      <section className="abstract band">
         <div className="section-heading">
-          <p className="eyebrow">Research Problem</p>
-          <h2>Dynamic disasters demand proactive multi-agent reasoning.</h2>
+          {/* <p className="eyebrow">Research Problem</p> */}
+          <h2>Abstract</h2>
         </div>
         <p className="lead">
-          Disaster response settings such as fire rescue are path-dependent,
-          time-critical, and partially observable. A delayed decision can block
-          paths, destroy targets, or remove the feasibility of later rescue
-          operations. EMA-Bench shifts evaluation from static task completion to
-          anticipatory, team-level decision quality under evolving risk.
+        Embodied multi-agent systems are vital for high-risk disaster response, yet they struggle in dynamic environments characterized by rapidly hazard escalation and path-dependent dynamics. The rapid compounding of hazards in these settings demands a shift from reactive execution to proactive reasoning to effectively anticipate environmental dynamics. Furthermore, the extreme time sensitivity of these scenarios makes multi-agent cooperation a functional necessity, as agents must coordinate their efforts to prevent the disaster from outpacing the team's capacity. To address this, we introduce EMA-Bench, a high-fidelity simulation platform designed to evaluate multi-agent coordination within self-progressing fire. EMA-Bench facilitates interactions where agent actions directly influence the environmental progression under strict temporal urgency and partial observability. We propose a structured evaluation framework spanning foundational task execution, environmental exploration, and collaborative efficiency. Our empirical analysis of state-of-the-art multimodal foundation model-based agents highlights a significant deficiency in their ability to handle time-sensitive trade-offs and irreversible state transitions. These findings reveal a substantial gap in current embodied intelligence and establish a rigorous foundation for future research in resilient multi-agent coordination.
         </p>
       </section>
 
-      <section className="video-section band" id="video">
+{/* Overview*/}
+      <section className="overview band" id="overview">
         <div className="section-heading">
-          <p className="eyebrow">Demonstration</p>
-          <h2>Self-progressing fire response in simulation.</h2>
+          <h2>Overview</h2>
         </div>
-        <div className="video-frame">
-          <video
-            src={demonstrationVideo}
-            controls
-            playsInline
-            preload="metadata"
-            aria-label="EMA-Bench demonstration video"
+        <div className="overview-image-wrap">
+          <img
+            src={overviewImageUrl}
+            alt="EMA-Bench overview figure"
+            className="overview-image"
+            loading="lazy"
+            decoding="async"
           />
+        </div>
+        <div className="figure-placeholder">Figure 1: Multi-agent collaborative firefighting and rescue framework. We employ a heterogeneous team of firefighting and rescue robots to coordinate fire suppression and human evacuation. The panels illustrate the core components of the system: collaborative task execution in an indoor fire scenario (center), fire growth dynamics (left), the rescue process (bottom), and a communication example demonstrating inter-agent coordination (right).</div>
+        </section>
+
+{/* Challenges*/}
+      <section className="challenge band" id="challenge">
+        <div className="section-heading">
+          <h2>Challenges</h2>
+          {/* <p className="eyebrow">What makes dynamic environments challenging for multi-agent systems?</p> */}
+        </div>
+        <div className="track-list">
+          {challenges.map((challenge) => (
+            <article className="track" key={challenge.title}>
+              <span>{challenge.number}</span>
+              <div>
+                <h3>{challenge.title}</h3>
+                <p>{challenge.body}</p>
+              </div>
+            </article>
+          ))}
+        </div>
+        </section>
+
+{/* Agent-Environment Interaction*/}
+      <section className="agent-environment-interaction band" id="agent-environment-interaction">
+        <div className="section-heading">
+          <h2>Agent-Environment Interaction</h2>
+        </div>
+        <div className="overview-image-wrap">
+          <img
+            src={agentframeworkImageUrl}
+            alt="EMA-Bench agent-environment interaction figure"
+            className="overview-image"
+            loading="lazy"
+            decoding="async"
+          />
+        </div>
+        <div className="content-split">
+           {/* [IMAGE: Insert Figure 2 - Overview of the agent-environment interaction [cite: 298]] */}
+           <div className="figure-placeholder">Figure 2: Overview of the agent–environment interaction. Each agent operates in a closed loop of perception, decision-making, action execution, and memory update, while sharing information with other agents.</div>
+           
+           <div className="text-block">
+             <h3>Observation & Action Space</h3>
+             <p>
+               Agents perceive via <b>Visual Interface</b> (RGB-D frames) or <b>Symbolic Interface</b> (Object-centric metadata). [cite: 247, 248]
+               The action space includes 17 primitives across Navigation, Hazard Intervention, and Active Perception. [cite: 253, 268]
+             </p>
+           </div>
         </div>
       </section>
 
-      <section className="platform band" id="platform">
+{/* ENVIRONMENT & ASSETS*/}
+      <section className="environment-assets band" id="environment-assets">
         <div className="section-heading">
-          <p className="eyebrow">Platform Design</p>
-          <h2>Agents act while the environment keeps changing.</h2>
+          <h2>Environment & Assets</h2>
         </div>
-        <div className="principle-grid">
-          {principles.map((principle) => (
-            <article className="principle-card" key={principle.title}>
-              <h3>{principle.title}</h3>
-              <p>{principle.body}</p>
-            </article>
-          ))}
+        <div className="overview-image-wrap">
+          <img
+            src={environmentassetsImageUrl}
+            alt="EMA-Bench overview figure"
+            className="overview-image"
+            loading="lazy"
+            decoding="async"
+          />
         </div>
       </section>
 
       <section className="evaluation band" id="evaluation">
         <div className="section-heading">
-          <p className="eyebrow">Evaluation Framework</p>
-          <h2>Three complementary dimensions measure process quality.</h2>
+          <h2>System Overview</h2>
+          <p className="eyebrow">How does EMA-Bench evaluate multi-agent systems?</p>
         </div>
         <div className="track-list">
           {evaluationTracks.map((track) => (

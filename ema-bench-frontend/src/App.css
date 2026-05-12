@@ -157,9 +157,50 @@ h1 {
   background: #fffdf7;
 }
 
+/* Overview figure: full viewport width; heading keeps page gutters */
+section.overview.band {
+  padding-left: 0;
+  padding-right: 0;
+}
+
+section.overview.band > .section-heading {
+  padding-left: clamp(20px, 5vw, 72px);
+  padding-right: clamp(20px, 5vw, 72px);
+}
+
+.overview-image-wrap {
+  width: 100%;
+  margin: 0;
+  line-height: 0;
+}
+
+.overview-image {
+  display: block;
+  width: 100%;
+  height: auto;
+}
+
 .video-section,
 .findings {
   background: #f3f0e8;
+}
+
+.challenge {
+  color: #f8f4e8;
+  background: #171b1d;
+}
+
+.challenge .section-heading h2 {
+  color: #fffdf7;
+}
+
+.challenge .track {
+  border: 1px solid rgba(255, 253, 247, 0.16);
+  background: rgba(255, 253, 247, 0.06);
+}
+
+.challenge .track p {
+  color: rgba(248, 244, 232, 0.74);
 }
 
 .platform {
@@ -336,6 +377,16 @@ h1 {
 
   .band {
     padding: 58px 20px;
+  }
+
+  section.overview.band {
+    padding-left: 0;
+    padding-right: 0;
+  }
+
+  section.overview.band > .section-heading {
+    padding-left: 20px;
+    padding-right: 20px;
   }
 
   .section-heading {
