@@ -14,7 +14,7 @@ Embodied multi-agent systems are vital for high-risk disaster response, yet they
 
 | Resource | Description |
 |----------|-------------|
-| [Platform guidelines (Google Doc)](https://docs.google.com/document/d/ema-bench) | Experiment and collaboration guidelines for the EMA-Bench platform. |
+| [Platform guidelines (Google Doc)](https://drive.google.com/file/d/1wgos_ZZG2T6XC8TU00DXmWDLy1ua4tHv/view?usp=drive_link) | Experiment and collaboration guidelines for the EMA-Bench platform. |
 | [Simulation configs (Hugging Face dataset)](https://huggingface.co/datasets/EMAS4Rescue/ema-bench-26) | Dataset and metadata for **simulation configuration parameters** (scenes, tasks, and related settings). |
 
 ---
