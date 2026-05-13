@@ -4,6 +4,8 @@ import overviewImageUrl from './picture/overview.jpg?url'
 import agentframeworkImageUrl from './picture/framework.jpg?url'
 import environmentassetsImageUrl from './picture/assets_rooms.jpg?url'
 import npcassetsImageUrl from './picture/assets_npc.png?url'
+import demo1ImageUrl from './picture/demo_1.webm?url'
+import demo2ImageUrl from './picture/demo_2.webm?url'
 
 const demonstrationVideo =
   'https://ema-benchmark.oss-cn-beijing.aliyuncs.com/demonstration.webm'
@@ -168,6 +170,36 @@ function App() {
           ))}
         </div>
         </section>
+
+{/* demonstration_fire&extinguish*/}
+        <section className="demonstration_fire&extinguish band" id="demonstration_fire&extinguish">
+        <div className="section-heading">
+          <h2>Demonstration_fire</h2>
+        </div>
+        <div className="video-frame">
+          <video
+            src={demo2ImageUrl}
+            controls
+            playsInline
+            preload="metadata"
+            aria-label="EMA-Bench demonstration_fire video"
+          />
+        </div>
+      </section>
+      <section className="demonstration_rescue band" id="demonstration_rescue">
+        <div className="section-heading">
+          <h2>Demonstration_extinguish</h2>
+        </div>
+        <div className="video-frame">
+          <video
+            src={demo1ImageUrl}
+            controls
+            playsInline
+            preload="metadata"
+            aria-label="EMA-Bench demonstration_extinguish video"
+          />
+        </div>
+      </section>
 
 {/* Agent-Environment Interaction*/}
       <section className="agent-environment-interaction band" id="agent-environment-interaction">
