@@ -1,0 +1,84 @@
+# Execution Format
+
+<<[Super_CENTRAL]>>{
+
+Your output must be a single valid JSON object:
+
+```json
+{
+  "summary": "<concise global summary>",
+  "high_level_plan": "<global strategy and allocation logic>",
+  "robot_actions": {
+    "<robot_id>": {
+      "action": "<one action from Action Space>",
+      "action_parameter": "<parameters or null>"
+    }
+  }
+}
+```
+
+**Guidelines:**
+* Ensure the summary captures global state and coordination intent
+* Ensure the plan reflects allocation logic and priorities
+
+**Constraints:**
+* Include exactly one entry per robot_id
+* Keys must exactly match the Active Robot List
+* Do not add or omit any robot
+* Assign exactly one action per robot
+}
+<<[Super_FEEDBACK]>>{
+
+Your output must be a single valid JSON object:
+
+```json
+{
+  "summary": "<concise global supervisory summary>",
+  "high_level_plan": "<brief description of reasoning and reallocation logic>",
+  "reassignments": {
+    "<robot_id>": {
+      "action": "<one action from Action Space>",
+      "action_parameter": "<parameters or null>"
+    }
+  }
+}
+```
+
+**Guidelines:**
+* Ensure the summary captures global supervisory state and conflicts
+* Ensure the plan reflects reallocation rationale and priorities
+
+Constraints:
+* If feedback is present, include entries ONLY for robots that provided feedback
+* If no feedback is present, set reassignments to {}
+* Do NOT include robots that did not send feedback
+* Do NOT invent robot_ids
+* Assign exactly one suggested action per listed robot
+}
+<<[Super_DECISION]>>{
+
+Your output must be a single valid JSON object:
+
+```json
+{
+  "summary": "<concise global supervisory summary>",
+  "high_level_plan": "<brief description of global allocation strategy>",
+  "task_suggestions": {
+    "<robot_id>": {
+      "action": "<one action from Action Space>",
+      "action_parameter": "<parameters or null>"
+    }
+  }
+}
+```
+
+**Guidelines:**
+* Ensure the summary captures global supervisory state
+* Ensure the plan reflects overall allocation strategy
+
+**Constraints:**
+* You must generate one entry for every robot_id listed in the Active Robot List
+* Keys must exactly match the provided robot_ids
+* Do not invent, rename, or omit robot_ids
+* Assign exactly one suggested action per robot
+}

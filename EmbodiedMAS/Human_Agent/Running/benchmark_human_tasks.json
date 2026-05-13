@@ -1,0 +1,118 @@
+{
+    "docker": {
+        "image": "your-registry.example/tongsim/unreal-engine:runtime-pixel-streaming",
+        "base_args": [
+            "run",
+            "-ti",
+            "--gpus=all",
+            "--rm",
+            "--net=host",
+            "--device",
+            "/dev/snd",
+            "-e",
+            "DISPLAY=:1",
+            "-e",
+            "NVIDIA_DRIVER_CAPABILITIES=all",
+            "-v",
+            "/tmp/.X11-unix:/tmp/.X11-unix:rw",
+            "-v",
+            "/usr/share/vulkan/icd.d:/usr/share/vulkan/icd.d:ro",
+            "-v",
+            "/usr/share/vulkan/implicit_layer.d:/usr/share/vulkan/implicit_layer.d:ro",
+            "-v",
+            "/path/to/EmbodiedMAS_Linux3.3_Shipping:/home/ue5/Linux"
+        ]
+    },
+    "paths": {
+        "container_ue_script": "/home/ue5/Linux/TongSim_Lite.sh",
+        "host_scene_config": "/path/to/EmbodiedMAS_Linux3.3_Shipping/SceneConfig.json"
+    },
+    "runtime": {
+        "ue_startup_wait": 10,
+        "python_timeout": 600,
+        "max_consecutive_errors": 2,
+        "runs_per_task": 3
+    },
+    "max_memory_size": 3,
+    "burn_time": 1,
+    "tasks": [
+        {
+            "task_id": "Main_9_SD_none",
+            "backend": "VLM",
+            "scene_id": 9,
+            "fire_num": 2,
+            "npc_num": 3,
+            "start_euler_z_deg": -180,
+            "dmas_human": {
+                "n_agents": 4,
+                "agent_types": "FD,FD,FD,SD",
+                "max_steps":  50
+            }
+        },
+        {
+            "task_id": "Main_7_SD_none",
+            "backend": "VLM",
+            "scene_id": 7,
+            "fire_num": 2,
+            "npc_num": 3,
+            "start_euler_z_deg": -180,
+            "dmas_human": {
+                "n_agents": 4,
+                "agent_types": "FD,FD,FD,SD",
+                "max_steps":  50
+            }
+        },
+        {
+            "task_id": "Main_5_SD_none",
+            "backend": "OL",
+            "scene_id": 5,
+            "fire_num": 2,
+            "npc_num": 3,
+            "start_euler_z_deg": -180,
+            "dmas_human": {
+                "n_agents": 4,
+                "agent_types": "FD,FD,FD,SD",
+                "max_steps":  50
+            }
+        },
+        {
+            "task_id": "Main_5_none",
+            "backend": "VLM",
+            "scene_id": 5,
+            "fire_num": 2,
+            "npc_num": 0,
+            "start_euler_z_deg": -180,
+            "dmas_human": {
+                "n_agents": 3,
+                "agent_types": "FD,FD,FD",
+                "max_steps":  50
+            }
+        },
+        {
+            "task_id": "Main_9_none",
+            "backend": "VLM",
+            "scene_id": 9,
+            "fire_num": 2,
+            "npc_num": 0,
+            "start_euler_z_deg": -180,
+            "dmas_human": {
+                "n_agents": 3,
+                "agent_types": "FD,FD,FD",
+                "max_steps":  50
+            }
+        },
+        {
+            "task_id": "Main_6_none",
+            "backend": "VLM",
+            "scene_id": 6,
+            "fire_num": 2,
+            "npc_num": 0,
+            "start_euler_z_deg": -180,
+            "dmas_human": {
+                "n_agents": 3,
+                "agent_types": "FD,FD,FD",
+                "max_steps":  50
+            }
+        }
+    ]
+}

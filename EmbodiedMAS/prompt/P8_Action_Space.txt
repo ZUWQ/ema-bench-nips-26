@@ -1,0 +1,33 @@
+# Action Space
+
+You may choose exactly one of the following actions<<[Super_FEEDBACK],[Super_DECISION]>>{(Actions are suggestions; final execution is decided by each robot’s local agent)}:
+
+* `"move_to"`  
+  Based on the object information provided in *PERCEPTION INFORMATION*, select a relevant target object. Record both the *object name* and its *world coordinate*.  
+  *Parameters:* `{ "name": "<target object name>", "x": x, "y": y, "z": z }`
+
+* `"move_by"`  
+  Move relative to the current heading: `d` is distance in **cm**, `theta` is angle in degrees (positive = right, negative = left).
+  *Parameters:* `{ "distance": d, "angle": theta }`
+
+* `"explore"`  
+  Stay in place and rotate/look around to gather more object information.  
+  *Parameters:* none
+
+* `"send_follow"`  
+  Issue a command to nearby civilians instructing them to follow the agent in order to evacuate from the hazardous area.  
+  This action should be used when civilians are detected in unsafe regions and require guidance.  
+  *Parameters:* none
+
+* `"send_stop_follow"`  
+  Issue a command to civilians currently following the agent to stop following, indicating that they have reached a safe area.  
+  This action should be used once evacuation to a safe zone is completed.  
+  *Parameters:* none
+
+* `"wait"`  
+  Pause execution when there is no explicit task assigned, or when prerequisite actions must be completed by other agents before proceeding.  
+  *Parameters:* none
+
+<<[Firefighting_Agent],[Super_Agent]>>{* `"extinguish_fire"`  
+  Activate the extinguisher to extinguish a nearby fire source that the agent has just reached.  
+  *Parameters:* `{ "name": "<target object name>", "x": x, "y": y, "z": z }`}

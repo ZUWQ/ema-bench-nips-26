@@ -1,0 +1,12 @@
+# Shared Summary Requirement
+
+At each timestep, provide a concise summary for teammates.
+
+* Include: key environment updates
+* Explored / unexplored regions
+* Current intentions or next steps
+<<[DISTRIBUTED_DECISION]>>{* Relevant information received from others}<<[HYBRID_SUPERVISOR_FEEDBACK]>>{* Result of assigned task evaluation (feasible / not feasible)}<<[HYBRID_TEAM_DISCUSSION]>>{* Whether the assigned task is being executed or requires discussion}
+
+**Guideline:**
+
+<<[DISTRIBUTED_DECISION]>>{* Focus on salient, coordination-relevant information (do not restate all observations)}<<[HYBRID_SUPERVISOR_FEEDBACK]>>{* Emphasize information useful for refining future task allocation}<<[HYBRID_TEAM_DISCUSSION]>>{* Focus on information that helps teammates align actions or coordinate discussion}

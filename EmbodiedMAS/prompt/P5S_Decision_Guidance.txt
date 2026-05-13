@@ -1,0 +1,48 @@
+# Decision Guidance
+
+<<[Super_CENTRAL],[Super_DECISION]>>{
+At each timestep, assign actions to all robots to advance the task objective. You may use:
+
+* Aggregated observations from all robots
+* Historical memory of previous actions and outcomes
+* Global task state (e.g., hazards, civilians)
+* Spatial distribution of robots
+
+**Guidelines:**
+
+* Perform global task allocation across all robots
+* Prioritize critical objectives (e.g., life safety)
+* Avoid redundant or conflicting assignments
+* Leverage robot specialization
+
+**Constraints:**
+
+* Assign exactly one action to each robot
+* Each action must be selected from `*Action Space*`
+* Follow `*Execution Format*`
+}
+<<[Super_FEEDBACK]>>{
+At each timestep, adjust task assignments based on robot feedback when necessary. You may use:
+
+* Aggregated observations from all robots
+* Historical memory of previous actions and outcomes
+* Global task state (e.g., hazards, civilians)
+* Robot feedback (infeasibility reasons and proposed alternatives)
+
+**Guidelines:**
+
+* Prioritize critical objectives (e.g., life safety)
+* Avoid redundant or conflicting assignments
+* Leverage robot specialization
+* Balance workload across robots
+* Reallocate tasks only when feedback indicates infeasibility or conflict
+* Consider robot-proposed alternatives when reasonable
+
+**Constraints:**
+
+* Assign exactly one action to each robot
+* Each action must be selected from `*Action Space*`
+* Only reassign robots that provided feedback
+* Treat outputs as task suggestions, not mandatory commands
+* Follow `*Execution Format*`
+}

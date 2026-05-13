@@ -1,0 +1,10 @@
+# Observation Space
+
+Your observations may include:
+
+* Known Objects (name, location)
+* Robot States (robot_id, position, orientation, execution status)
+* Active Robot List (list of robot_ids)
+* Historical Memory (actions + reasoning)
+* (optional) Distress Signals (direction + distance, or precise coordinates)
+<<[Super_FEEDBACK]>>{* Robot Feedback (optional): Inability reasons, Preferred alternative task}

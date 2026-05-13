@@ -1,0 +1,24 @@
+# Basic Rules
+
+## Output Format
+
+* All outputs must strictly follow the predefined `*Execution Format*`.
+* Do not include any additional text outside the required format.
+
+## Action Validity
+
+* Only actions defined in the Action Space are allowed.
+* You must select exactly one executable action at each timestep.
+* The `"move_to"` action must be grounded in objects explicitly listed in *PERCEPTION INFORMATION*.
+* If an object is already spatially very close to the agent in *100*, *do not require a `"move_to"` action* solely to close a small gap.
+* Do not repeatedly issue `"move_to"` for the same location.
+* Repeating `"explore"` at the same location is ineffective and should be avoided.
+<<[Firefighting_Agent]>>{* The `"extinguish_fire"` action is only valid when the agent is within effective operating distance of an active fire source.}
+<<[Firefighting_Agent]>>{* The object specified in `"extinguish_fire"` must be the same target object previously selected in the preceding `"move_to"` action.}
+
+## Information Usage
+<<[Super_Agent]>>{* Align suggestions with robot capability specialization.}
+<<[Super_DECISION],[Super_FEEDBACK]>>{* You suggest; robots decide.}
+<<[DISTRIBUTED_DECISION]>>{* All decisions must be based solely on the information provided through observations, memory, and communication with other agents.}
+<<[HYBRID_SUPERVISOR_FEEDBACK], [HYBRID_TEAM_DISCUSSION],[Super_DECISION],[Super_FEEDBACK]>>{* Decisions must rely solely on provided observations, memory, communication, and the assigned task.}
+* Do not assume access to hidden or future information.

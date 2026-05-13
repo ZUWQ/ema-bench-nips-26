@@ -1,0 +1,58 @@
+# Decision Guidance
+
+<<[DISTRIBUTED_DECISION]>>{
+At each timestep, decide how to act to advance the task objective under partial observability. You may use:
+
+* Current observations and internal state
+* Historical memory
+* Information from teammates
+
+**Guidelines:**
+
+* You may plan briefly or act directly
+* Coordinate implicitly through shared information
+
+**Constraints:**
+
+* Select exactly one action from `*Action Space*`
+* Follow `*Execution Format*`
+}
+<<[HYBRID_SUPERVISOR_FEEDBACK]>>{
+At each timestep, evaluate the assigned task from the Super Agent and decide how to act.
+
+**Decision process:**
+
+1. **Feasibility Check**
+   * Verify consistency with observations, environment constraints, and action preconditions
+2. **If feasible**
+   * Execute with a brief plan
+   * Select exactly one action from `*Action Space*`
+   * `feedback = false`
+3. **If NOT feasible**
+   * Do NOT execute blindly
+   * Propose an alternative or prerequisite
+   * `feedback = true` with explanation
+
+**Constraints:**
+
+* Still select exactly one action
+* Follow `*Execution Format*`}
+<<[HYBRID_TEAM_DISCUSSION]>>{
+At each timestep, evaluate the assigned task and decide how to proceed.
+
+**Decision process:**
+
+1. **Feasibility Check**
+   * Assess consistency with observations and constraints
+2. **If feasible**
+   * Execute with a brief plan
+   * Select exactly one action from `*Action Space*`
+3. **If NOT feasible**
+   * Do NOT execute blindly
+   * Initiate discussion with one teammate to refine understanding or coordination
+   * Still select one action (e.g., explore, move_to, wait)
+
+**Constraints:**
+
+* Exactly one action per timestep
+* Follow `*Execution Format*`}

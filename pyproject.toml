@@ -1,0 +1,108 @@
+[project]
+name = "tongsim"
+dynamic = ["version"]
+description = "EMA-Bench: Python client for TongSim and EmbodiedMAS code for embodied multi-agent LLM/VLM evaluation."
+readme = "README.md"
+authors = [
+    { name = "wukunlun", email = "wukunlun@bigai.ai" }
+]
+requires-python = ">=3.12"
+dependencies = [
+    "grpcio>=1.71.0",
+    "grpcio-tools>=1.71.0",
+    "imath>=0.0.2",
+    "matplotlib>=3.10.7",
+    "nicegui>=3.10.0",
+    "openai>=2.12.0",
+    "opencv-python>=4.12.0.88",
+    "openexr>=3.4.2",
+    "pyglm>=2.8.1",
+    "pyqt5>=5.15.11",
+    "ultralytics>=8.3.239",
+]
+
+[build-system]
+requires = ["hatchling"]
+build-backend = "hatchling.build"
+
+[tool.hatch.version]
+path = "src/tongsim/version.py"
+
+[dependency-groups]
+dev = [
+    "black>=24.10.0",
+    "pre-commit>=4.2.0",
+    "ruff>=0.9.1",
+]
+docs = [
+    "mkdocs>=1.6.1",
+    "mkdocs-material>=9.6.9",
+    "mkdocs-redirects>=1.2.2",
+    "mkdocstrings-python>=1.16.8",
+]
+test = [
+    "pytest>=8.3.5",
+    "pytest-asyncio>=0.26.0",
+]
+multi_agent = [
+  "gymnasium>=1.2.1",
+  "psutil>=7.1.1",
+  "matplotlib>=3.10.7",
+  "numpy>=2.2.6",
+]
+
+[tool.uv]
+default-groups = [
+  'dev',
+  'docs',
+  'multi_agent'
+  ]
+
+[[tool.uv.index]]
+name = "tsinghua"
+url = "https://mirrors.tuna.tsinghua.edu.cn/pypi/web/simple"
+default = true
+
+[[tool.uv.index]]
+name = "bigai"
+publish-url = "https://nexus.mybigai.ac.cn/repository/pypi-host/"
+url = "https://nexus.mybigai.ac.cn/repository/pypi/simple"
+
+[tool.ruff]
+exclude = [
+    "**/tongsim_lite_protobuf/**",  # 把 proto 输出的目录排除
+]
+
+[tool.ruff.lint]
+select = [
+  "B",   # flake8-bugbear
+  "C",   # flake8-comprehensions
+  "E",   # pycodestyle errors
+  "F",   # pyflakes
+  "FA",  # flake8-future-annotations
+  "I",   # isort
+  "N",   # pep8-naming
+  "RET", # flake8-return
+  "RUF", # Ruff-specific rules
+  "SIM", # flake8-simplify
+  "T20", # flake8-print
+  "UP",  # pyupgrade
+  "W",   # pycodestyle warnings
+  "Q",   # flake8-quotes
+  "SLF", # flake8-self
+  "RSE", # flake8-raise
+]
+ignore = [
+  "E501",         # line too long
+  "RUF002",       # full-width in docstring
+  "RUF003",       # full-width in comment
+]
+
+[tool.ruff.lint.per-file-ignores]
+"examples/**" = ["T201"]       # print can be used in example
+"scripts/**" = ["T201"]       # print can be used in scripts
+
+[tool.pytest.ini_options]
+asyncio_mode = "auto"
+asyncio_default_fixture_loop_scope = "session"
+asyncio_default_test_loop_scope = "session"

@@ -1,0 +1,29 @@
+# Action Space
+
+You may choose exactly one of the following actions<<[Super_FEEDBACK],[Super_DECISION]>>{(Actions are suggestions; final execution is decided by each robot’s local agent)}:
+
+* `"move_to"`  
+  Select a target location by specifying its pixel coordinates (x, y) directly from the visual input and move toward it to reduce distance to that target.  
+  *Parameters:* `{ "x": x, "y": y, "name": "<estimated object name>" }`
+
+* `"move_by"`  
+  Move relative to the current heading, where `distance` (cm) controls forward motion and `angle` (degrees) controls direction (positive = right, negative = left).  
+  *Parameters:* `{ "distance": d, "angle": theta }`
+
+* `"send_follow"`  
+  Issue a command to nearby civilians instructing them to follow the agent in order to evacuate from the hazardous area.  
+  This action should be used when civilians are detected in unsafe regions and require guidance.  
+  *Parameters:* none
+
+* `"send_stop_follow"`  
+  Issue a command to civilians currently following the agent to stop following, indicating that they have reached a safe area.  
+  This action should be used once evacuation to a safe zone is completed.  
+  *Parameters:* none
+
+* `"wait"`  
+  Take no action and passively observe the environment for updated information when no confident action is available.  
+  *Parameters:* none
+
+<<[Firefighting_Agent],[Super_Agent]>>{* `"extinguish_fire"`  
+  Extinguish a nearby fire by selecting its pixel location (x, y) in the current visual input; this action is only effective when the fire is sufficiently close and clearly visible.  
+  *Parameters:* `{ "x": x, "y": y, "name": "<estimated object name>" }`}

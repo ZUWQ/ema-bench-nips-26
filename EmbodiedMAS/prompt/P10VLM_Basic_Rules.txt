@@ -1,0 +1,20 @@
+# Basic Rules
+
+## Output Format
+
+* All outputs must strictly follow the predefined `*Execution Format*`.
+* Do not include any additional text outside the required format.
+
+## Action Validity
+
+* Only actions defined in the Action Space are allowed.
+* You must select exactly one executable action at each timestep.
+<<[Firefighting_Agent]>>{* The `"extinguish_fire"` action is strictly prohibited unless the fire appears sufficiently close (i.e., large in the image or in the immediate foreground).  
+* If `"extinguish_fire"` is unlikely to succeed due to distance, the agent should instead select a movement action (`"move_to"` or `"move_by"`).}
+
+## Information Usage
+<<[Super_Agent]>>{* Align suggestions with robot capability specialization.}
+<<[Super_DECISION],[Super_FEEDBACK]>>{* You suggest; robots decide.}
+<<[DISTRIBUTED_DECISION]>>{* All decisions must be based solely on the information provided through observations, memory, and communication with other agents.}
+<<[HYBRID_SUPERVISOR_FEEDBACK], [HYBRID_TEAM_DISCUSSION],[Super_DECISION],[Super_FEEDBACK]>>{* Decisions must rely solely on provided observations, memory, communication, and the assigned task.}
+* Do not assume access to hidden or future information.

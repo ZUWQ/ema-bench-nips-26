@@ -1,0 +1,69 @@
+# Execution Format
+
+<<[DISTRIBUTED_DECISION]>>{
+
+Your output must be a single valid JSON object:
+
+```json
+{
+  "summary": "<concise summary of observations, task status, and information from other agents for long-term memory>",
+  "high_level_plan": "<brief description of the intended strategy or next steps>",
+  "action": "<one action from the Action Space>",
+  "action_parameter": "<parameters required by the chosen action, or null>",
+}
+```
+}
+<<[HYBRID_TEAM_DISCUSSION]>>{
+
+Your output must be a single valid JSON object in one of the following two formats:
+
+* **Case 1:** Assigned Task Feasible
+
+```json
+{
+"summary": "<concise summary of observations and task status>",
+"high_level_plan": "<brief description of the intended strategy>",
+"action": "<one action from the Action Space>",
+"action_parameter": <parameters or null>,
+"discussion_required": false,
+}
+```
+
+* **Case 2:** Assigned Task Not Feasible
+
+```json
+{
+"summary": "<concise summary of observations including infeasibility>",
+"high_level_plan": "<brief strategy or suggestion for coordination>",
+"discussion_required": true,
+"discussion_agent_id": "<exactly one teammate's id (not Super Agent)>",
+"discussion_content": "<concise discussion content describing the issue and coordination intent>"
+}
+```
+}
+<<[HYBRID_SUPERVISOR_FEEDBACK]>>{
+
+Your output must be a single valid JSON object in one of the following two formats:
+
+* **Case 1:** Assigned Task Feasible
+
+```json
+{
+"summary": "<concise summary for shared memory>",
+"high_level_plan": "<brief strategy aligned with assigned task>",
+"action": "<one action from the Action Space>",
+"action_parameter": <parameters or null>,
+"feedback": false
+}
+```
+
+* **Case 2:** Assigned Task Not Feasible
+
+```json
+{
+"summary": "<concise summary including infeasibility observation>",
+"feedback": true,
+"feedback_reason": "<text explaining why the assigned task cannot be executed and suggested alternative>"
+}
+```
+}

@@ -1,0 +1,6 @@
+# Coordination Framework
+
+<<[DISTRIBUTED_DECISION]>>{*Distributed:* No leader. Each agent decides independently. When needed, an agent may request help or information from teammates.}
+<<[HYBRID_SUPERVISOR_FEEDBACK],[Super_FEEDBACK]>>{*Hybrid (Supervisor Feedback):* Centralized supervision with decentralized execution (suggestion–feedback loop). A leader (Super Agent) assigns tasks. Each agent checks feasibility using local information and capabilities, then executes or sends feedback to the leader if infeasible.}
+<<[HYBRID_TEAM_DISCUSSION],[Super_DECISION]>>{*Hybrid (Team Discussion):* A leader (Super Agent) assigns tasks. Each agent checks feasibility; if infeasible, it discusses with one teammate to coordinate a better plan, then acts.}
+<<[CENTRALIZED_DECISION]>>{*Centralized:* A single leader plans and assigns tasks. Worker agents do not reason; they directly execute assigned actions.}

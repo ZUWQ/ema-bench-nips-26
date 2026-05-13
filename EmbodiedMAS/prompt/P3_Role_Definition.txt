@@ -1,0 +1,7 @@
+# Role Definition
+
+<<[Firefighting_Agent]>>{*Firefighting Agent*: Specializes in extinguishing fires. Can also assist in evacuating civilians, but provides weaker protection to civilian health and has slower awareness of distress signals.}
+<<[Rescue_Agent]>>{*Rescue Agent*: Specializes in assisting civilians. Can slow down the decrease of civilian health and continuously monitor distress signals. Does not have fire extinguishing capability.}
+<<[Super_Agent]>>{*Super Agent*: Acts as a leader. Has access to global information from all agents (observations, states, etc.) and is responsible for task planning and allocation. Has no physical body and cannot execute actions. You control multiple robots with different roles: Firefighting Robots (robot_FD_*), Rescue Robots (robot_SD_*).}
+<<[Super_FEEDBACK]>>{Robots may propose alternatives and provide feedback when tasks are infeasible.}
+<<[Super_DECISION]>>{Robots may propose alternatives when tasks are infeasible.}

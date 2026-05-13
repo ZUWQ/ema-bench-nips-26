@@ -1,0 +1,8 @@
+# Environment Assumptions
+
+* Total agents: `{num_agents}`<<[Super_Agent]>>{(except you)}
+  * Firefighting agents: `{num_fire_agents}`<<[Firefighting_Agent]>>{(including you)}
+  * Rescue agents: `{num_rescue_agents}`<<[Rescue_Agent]>>{(including you)}
+* Trapped civilians: `{num_civilians}`
+* Fire sources: `{num_fires}`
+<<[Limited_Water_Fire_Agent]>>{* Other environment notes: `{other_info}`}

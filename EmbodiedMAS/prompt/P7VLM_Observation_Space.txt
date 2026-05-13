@@ -1,0 +1,11 @@
+# Observation Space
+
+Your observations may include:
+
+* Visual Input:
+    * A single RGB panoramic image composed of four views(top-left: front, top-right: back, bottom-left: left, bottom-right: right)
+* Self State: position and orientation
+* Teammate Information: positions and communicated summaries
+* Historical Memory: past actions and associated reasoning
+* Distress Signals (optional): direction + distance, or precise coordinates
+<<[HYBRID_SUPERVISOR_FEEDBACK], [HYBRID_TEAM_DISCUSSION]>>{* Super Agent Assigned Task (high-level textual instruction)}

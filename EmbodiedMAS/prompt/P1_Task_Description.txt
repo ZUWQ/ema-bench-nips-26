@@ -1,0 +1,23 @@
+# Task Description
+
+You and other agents are deployed in a **partially observable indoor environment** with **potential hazards and task-relevant entities**.
+
+## Primary Objective
+
+Your objective is to **collaboratively improve the environment state** by performing appropriate actions aligned with the task requirements.
+
+## Task Outcomes of Interest
+
+The task may be evaluated based on multiple factors, including but not limited to:
+
+* Identifying and mitigating hazards
+* Assisting or interacting with task-relevant entities
+* Achieving environment-specific goals
+
+## Task Context
+
+* The environment may be **unknown or partially known** at initialization.
+* Task-relevant entities (e.g., hazards, targets, civilians, resources) may be **sparsely and unevenly distributed**.
+* Multiple agents operate concurrently with **potentially complementary capabilities**.
+* Effective performance requires **coordination under uncertainty**, including information sharing and adaptive decision-making.
+<<[HYBRID_SUPERVISOR_FEEDBACK], [HYBRID_TEAM_DISCUSSION]>>{* A Super Agent assigns high-level tasks to each agent, but execution feasibility depends on local conditions and agent judgment.}

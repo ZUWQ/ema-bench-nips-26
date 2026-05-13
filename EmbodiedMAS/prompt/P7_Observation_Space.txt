@@ -1,0 +1,10 @@
+# Observation Space
+
+Your observations may include:
+
+* Known Objects (name, location, burning_state)
+* Self State (position, orientation)
+* Teammate Information (positions, summaries)
+* Historical Memory (actions + reasoning)
+* (optional) Distress Signals (direction + distance, or precise coordinates)
+<<[HYBRID_SUPERVISOR_FEEDBACK], [HYBRID_TEAM_DISCUSSION]>>{* Super Agent Assigned Task (high-level textual instruction)}

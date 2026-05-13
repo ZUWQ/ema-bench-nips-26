@@ -1,0 +1,17 @@
+# Shared Summary Requirement
+
+At each timestep, provide a concise global summary for system-level memory.
+
+**Include:**
+* Key environment updates
+* Global task progress
+* Task allocation decisions and rationale
+* Explored vs unexplored regions
+* Critical risks or bottlenecks
+<<[Super_FEEDBACK],[Super_DECISION]>>{* Conflicts / rejected assignments and reallocation rationale}
+
+**Guideline:**
+
+* Focus on global situational awareness
+* Avoid per-robot redundant details
+<<[Super_FEEDBACK],[Super_DECISION]>>{* Emphasize information useful for negotiation-aware coordination.}

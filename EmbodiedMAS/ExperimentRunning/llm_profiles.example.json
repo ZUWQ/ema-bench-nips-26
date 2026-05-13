@@ -1,0 +1,42 @@
+{
+    "gpt54": {
+        "api_key": "sk-example-replace-with-your-key",
+        "base_url": "https://api.example.com/v1",
+        "model": "gpt-5.4-example"
+    },
+    "gpt4o": {
+        "api_key": "sk-example-replace-with-your-key",
+        "base_url": "https://api.openai.com/v1",
+        "model": "gpt-4o"
+    },
+    "gemini3": {
+        "api_key": "example-gemini-key",
+        "base_url": "https://generativelanguage.googleapis.com/v1beta/openai/",
+        "model": "gemini-example"
+    },
+    "deepseek4": {
+        "api_key": "sk-example-replace-with-your-key",
+        "base_url": "https://api.deepseek.com/v1",
+        "model": "deepseek-chat"
+    },
+    "qwen397b": {
+        "api_key": "sk-example-replace-with-your-key",
+        "base_url": "https://dashscope.aliyuncs.com/compatible-mode/v1",
+        "model": "qwen-vl-max"
+    },
+    "qwen122b": {
+        "api_key": "sk-example-replace-with-your-key",
+        "base_url": "https://dashscope.aliyuncs.com/compatible-mode/v1",
+        "model": "qwen2.5-72b-instruct"
+    },
+    "qwen35b": {
+        "api_key": "sk-example-replace-with-your-key",
+        "base_url": "https://dashscope.aliyuncs.com/compatible-mode/v1",
+        "model": "qwen2.5-32b-instruct"
+    },
+    "llama3": {
+        "api_key": "not-used-local-ollama",
+        "base_url": "http://127.0.0.1:11434/v1",
+        "model": "llama3-example"
+    }
+}
