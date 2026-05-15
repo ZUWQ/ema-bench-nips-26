@@ -4,11 +4,10 @@ import overviewImageUrl from './picture/overview.jpg?url'
 import agentframeworkImageUrl from './picture/framework.jpg?url'
 import environmentassetsImageUrl from './picture/assets_rooms.jpg?url'
 import npcassetsImageUrl from './picture/assets_npc.png?url'
-import demo1ImageUrl from './picture/demo_1.webm?url'
-import demo2ImageUrl from './picture/demo_2.webm?url'
-
-const demonstrationVideo =
-  'https://ema-benchmark.oss-cn-beijing.aliyuncs.com/demonstration.webm'
+import demonstrationVideoUrl from './picture/demo.webm?url'
+import demo1ImageUrl from './picture/01DHP.webm?url'
+import demo2ImageUrl from './picture/02RCE.webm?url'
+import demo3ImageUrl from './picture/03IPD.webm?url'
 
 const principles = [
   {
@@ -87,7 +86,7 @@ function App() {
       <section className="hero" id="top">
         <video
           className="hero-video"
-          src={demonstrationVideo}
+          src={demonstrationVideoUrl}
           autoPlay
           muted
           loop
@@ -152,52 +151,63 @@ function App() {
         <div className="figure-placeholder">Figure 1: Multi-agent collaborative firefighting and rescue framework. We employ a heterogeneous team of firefighting and rescue robots to coordinate fire suppression and human evacuation. The panels illustrate the core components of the system: collaborative task execution in an indoor fire scenario (center), fire growth dynamics (left), the rescue process (bottom), and a communication example demonstrating inter-agent coordination (right).</div>
         </section>
 
-{/* Challenges*/}
+{/* Challenges + demonstrations (demos on the right) */}
       <section className="challenge band" id="challenge">
         <div className="section-heading">
           <h2>Challenges</h2>
+          <p className="eyebrow">Demonstrations</p>
           {/* <p className="eyebrow">What makes dynamic environments challenging for multi-agent systems?</p> */}
         </div>
-        <div className="track-list">
-          {challenges.map((challenge) => (
-            <article className="track" key={challenge.title}>
-              <span>{challenge.number}</span>
-              <div>
-                <h3>{challenge.title}</h3>
-                <p>{challenge.body}</p>
+        <div className="challenge-layout">
+          <div className="track-list">
+            {challenges.map((challenge) => (
+              <article className="track" key={challenge.title}>
+                <span>{challenge.number}</span>
+                <div>
+                  <h3>{challenge.title}</h3>
+                  <p>{challenge.body}</p>
+                </div>
+              </article>
+            ))}
+          </div>
+          <div className="challenge-demos" id="demonstration">
+            <div className="challenge-demo-block" id="demonstration-fire">
+              {/* <h4>Demonstration_fire</h4> */}
+              <div className="video-frame video-frame--compact">
+                <video
+                  src={demo1ImageUrl}
+                  controls
+                  playsInline
+                  preload="metadata"
+                  aria-label="EMA-Bench demonstration_fire video"
+                />
               </div>
-            </article>
-          ))}
-        </div>
-        </section>
-
-{/* demonstration_fire&extinguish*/}
-        <section className="demonstration_fire&extinguish band" id="demonstration_fire&extinguish">
-        <div className="section-heading">
-          <h2>Demonstration_fire</h2>
-        </div>
-        <div className="video-frame">
-          <video
-            src={demo2ImageUrl}
-            controls
-            playsInline
-            preload="metadata"
-            aria-label="EMA-Bench demonstration_fire video"
-          />
-        </div>
-      </section>
-      <section className="demonstration_rescue band" id="demonstration_rescue">
-        <div className="section-heading">
-          <h2>Demonstration_extinguish</h2>
-        </div>
-        <div className="video-frame">
-          <video
-            src={demo1ImageUrl}
-            controls
-            playsInline
-            preload="metadata"
-            aria-label="EMA-Bench demonstration_extinguish video"
-          />
+            </div>
+            <div className="challenge-demo-block" id="demonstration-extinguish">
+              {/* <h4>Demonstration_extinguish</h4> */}
+              <div className="video-frame video-frame--compact">
+                <video
+                  src={demo3ImageUrl}
+                  controls
+                  playsInline
+                  preload="metadata"
+                  aria-label="EMA-Bench demonstration_extinguish video"
+                />
+              </div>
+            </div>
+            <div className="challenge-demo-block" id="demonstration-rescue">
+              {/* <h4>Demonstration_rescue</h4> */}
+              <div className="video-frame video-frame--compact">
+                <video
+                  src={demo2ImageUrl}
+                  controls
+                  playsInline
+                  preload="metadata"
+                  aria-label="EMA-Bench demonstration_rescue video"
+                />
+              </div>
+            </div>
+          </div>
         </div>
       </section>
 
@@ -263,7 +273,7 @@ function App() {
         </div>
         <div className="video-frame">
           <video
-            src={demonstrationVideo}
+            src={demonstrationVideoUrl}
             controls
             playsInline
             preload="metadata"

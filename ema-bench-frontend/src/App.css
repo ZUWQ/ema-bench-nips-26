@@ -203,6 +203,54 @@ section.overview.band > .section-heading {
   color: rgba(248, 244, 232, 0.74);
 }
 
+.challenge-layout {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(260px, 0.4fr);
+  gap: clamp(24px, 3vw, 40px);
+  align-items: start;
+  max-width: 1180px;
+  margin: 0 auto;
+}
+
+.challenge-demos {
+  position: sticky;
+  top: 88px;
+  display: flex;
+  flex-direction: column;
+  /* ~two blank lines between each video block */
+  gap: 3rem;
+}
+
+.challenge-demos-title {
+  margin: 0 0 16px;
+  color: #fffdf7;
+  font-size: 20px;
+  font-weight: 800;
+  letter-spacing: 0.02em;
+}
+
+.challenge-demo-block {
+  margin: 0;
+}
+
+.challenge-demo-block h4 {
+  margin: 0 0 8px;
+  color: rgba(255, 253, 247, 0.88);
+  font-size: 14px;
+  font-weight: 700;
+  letter-spacing: 0.04em;
+  text-transform: none;
+}
+
+.challenge .video-frame {
+  border-color: rgba(255, 253, 247, 0.2);
+  box-shadow: 0 12px 40px rgba(0, 0, 0, 0.35);
+}
+
+.challenge .video-frame--compact video {
+  aspect-ratio: 16 / 9;
+}
+
 .platform {
   color: #f8f4e8;
   background: #171b1d;
@@ -416,6 +464,14 @@ section.overview.band > .section-heading {
     grid-template-columns: 1fr;
     gap: 16px;
     padding: 22px;
+  }
+
+  .challenge-layout {
+    grid-template-columns: 1fr;
+  }
+
+  .challenge-demos {
+    position: static;
   }
 }
 
