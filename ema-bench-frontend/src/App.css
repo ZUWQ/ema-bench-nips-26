@@ -328,42 +328,49 @@ section.overview.band > .section-heading {
 }
 
 .challenge-layout {
-  display: grid;
-  grid-template-columns: minmax(0, 1fr) minmax(260px, 0.4fr);
-  gap: clamp(24px, 3vw, 40px);
-  align-items: start;
+  display: flex;
+  flex-direction: column;
+  gap: 18px;
   max-width: 1180px;
   margin: 0 auto;
 }
 
-.challenge-demos {
-  position: sticky;
-  top: 88px;
-  display: flex;
-  flex-direction: column;
-  /* ~two blank lines between each video block */
-  gap: 3rem;
+.challenge-header-row {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(260px, 0.4fr);
+  gap: clamp(24px, 3vw, 40px);
+  align-items: baseline;
 }
 
-.challenge-demos-title {
-  margin: 0 0 16px;
+.challenge-header-title h2 {
+  margin: 0;
   color: #fffdf7;
-  font-size: 20px;
-  font-weight: 800;
-  letter-spacing: 0.02em;
+  font-size: 44px;
+  line-height: 1.08;
+  letter-spacing: 0;
+}
+
+.challenge-header-demo-title {
+  display: flex;
+  align-items: flex-end;
+  justify-content: flex-start;
+}
+
+.challenge-header-demo-title .eyebrow {
+  margin: 0;
+  color: #ffb37a;
+}
+
+.challenge-row {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(260px, 0.4fr);
+  gap: clamp(24px, 3vw, 40px);
+  align-items: start;
 }
 
 .challenge-demo-block {
   margin: 0;
-}
-
-.challenge-demo-block h4 {
-  margin: 0 0 8px;
-  color: rgba(255, 253, 247, 0.88);
-  font-size: 14px;
-  font-weight: 700;
-  letter-spacing: 0.04em;
-  text-transform: none;
+  width: 100%;
 }
 
 .challenge .video-frame {
@@ -590,12 +597,13 @@ section.overview.band > .section-heading {
     padding: 22px;
   }
 
-  .challenge-layout {
+  .challenge-header-row,
+  .challenge-row {
     grid-template-columns: 1fr;
   }
 
-  .challenge-demos {
-    position: static;
+  .challenge-header-demo-title {
+    justify-content: flex-start;
   }
 }
 

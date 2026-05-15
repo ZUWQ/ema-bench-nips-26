@@ -39,6 +39,28 @@ const challenges = [
   },
 ]
 
+/** One demo per challenge row (same index) — keeps text and video vertically paired */
+const challengeDemos = [
+  {
+    id: 'demonstration-fire',
+    src: demo1ImageUrl,
+    ariaLabel: 'EMA-Bench demonstration_fire video',
+    label: 'demonstration_dynamic',
+  },
+  {
+    id: 'demonstration-extinguish',
+    src: demo2ImageUrl,
+    ariaLabel: 'EMA-Bench demonstration_extinguish video',
+    label: null,
+  },
+  {
+    id: 'demonstration-rescue',
+    src: demo3ImageUrl,
+    ariaLabel: 'EMA-Bench demonstration_rescue video',
+    label: null,
+  },
+]
+
 const comparisonData = [
   {
     simulator: "AI2-THOR",
@@ -279,61 +301,40 @@ function App() {
 
 {/* Challenges + demonstrations (demos on the right) */}
       <section className="challenge band" id="challenge">
-        <div className="section-heading">
-          <h2>Challenges</h2>
-          {/* <p className="eyebrow">Demonstrations</p> */}
-          {/* <p className="eyebrow">What makes dynamic environments challenging for multi-agent systems?</p> */}
-        </div>
-        <div className="challenge-layout">
-          <div className="track-list">
-            {challenges.map((challenge) => (
-              <article className="track" key={challenge.title}>
-                <span>{challenge.number}</span>
-                <div>
-                  <h3>{challenge.title}</h3>
-                  <p>{challenge.body}</p>
+        <div className="challenge-layout" id="small_demo">
+          <div className="challenge-header-row">
+            <div className="challenge-header-title">
+              <h2>Challenges</h2>
+            </div>
+            <div className="challenge-header-demo-title">
+              <p className="eyebrow">{challengeDemos[0].label}</p>
+            </div>
+          </div>
+          {challenges.map((challenge, i) => {
+            const demo = challengeDemos[i]
+            return (
+              <div className="challenge-row" key={challenge.title}>
+                <article className="track">
+                  <span>{challenge.number}</span>
+                  <div>
+                    <h3>{challenge.title}</h3>
+                    <p>{challenge.body}</p>
+                  </div>
+                </article>
+                <div className="challenge-demo-block" id={demo.id}>
+                  <div className="video-frame video-frame--compact">
+                    <video
+                      src={demo.src}
+                      controls
+                      playsInline
+                      preload="metadata"
+                      aria-label={demo.ariaLabel}
+                    />
+                  </div>
                 </div>
-              </article>
-            ))}
-          </div>
-          <div className="challenge-demos" id="small_demo">
-            <div className="challenge-demo-block" id="demonstration-fire">
-              <h4><p className="eyebrow">demonstration_dynamic</p></h4>
-              <div className="video-frame video-frame--compact">
-                <video
-                  src={demo1ImageUrl}
-                  controls
-                  playsInline
-                  preload="metadata"
-                  aria-label="EMA-Bench demonstration_fire video"
-                />
               </div>
-            </div>
-            <div className="challenge-demo-block" id="demonstration-extinguish">
-              {/* <h4>Demonstration_extinguish</h4> */}
-              <div className="video-frame video-frame--compact">
-                <video
-                  src={demo3ImageUrl}
-                  controls
-                  playsInline
-                  preload="metadata"
-                  aria-label="EMA-Bench demonstration_extinguish video"
-                />
-              </div>
-            </div>
-            <div className="challenge-demo-block" id="demonstration-rescue">
-              {/* <h4>Demonstration_rescue</h4> */}
-              <div className="video-frame video-frame--compact">
-                <video
-                  src={demo2ImageUrl}
-                  controls
-                  playsInline
-                  preload="metadata"
-                  aria-label="EMA-Bench demonstration_rescue video"
-                />
-              </div>
-            </div>
-          </div>
+            )
+          })}
         </div>
       </section>
 

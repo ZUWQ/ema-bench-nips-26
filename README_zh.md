@@ -14,7 +14,7 @@
 
 | 资源 | 说明 |
 |------|------|
-| [方针平台说明（Google 文档）](https://drive.google.com/file/d/1wgos_ZZG2T6XC8TU00DXmWDLy1ua4tHv/view?usp=drive_link) | EMA-Bench 平台相关的实验与协作方针说明。 |
+| [仿真平台说明（Google 文档）](https://drive.google.com/file/d/1wgos_ZZG2T6XC8TU00DXmWDLy1ua4tHv/view?usp=drive_link) | EMA-Bench 平台相关的实验与协作仿真说明。 |
 | [仿真配置（Hugging Face 数据集）](https://huggingface.co/datasets/EMAS4Rescue/ema-bench-26) | **仿真配置参数**（场景、任务及相关设置）的数据集与元数据。 |
 
 ---
