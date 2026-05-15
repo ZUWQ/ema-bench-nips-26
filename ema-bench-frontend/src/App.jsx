@@ -1,5 +1,5 @@
 import './App.css'
-import paperPdfUrl from './EMA_Bench.pdf?url'
+// import paperPdfUrl from './EMA_Bench.pdf?url'
 import overviewImageUrl from './picture/overview.jpg?url'
 import agentframeworkImageUrl from './picture/framework.jpg?url'
 import environmentassetsImageUrl from './picture/assets_rooms.jpg?url'
@@ -8,6 +8,7 @@ import npcassetsImageUrl from './picture/assets_npc.png?url'
 const HF_DEMO_VIDEO_BASE =
   'https://huggingface.co/datasets/ZWQ1103/temp_video/resolve/main'
 
+const paperPdfUrl = `${HF_DEMO_VIDEO_BASE}/EMA_Bench.pdf`
 const demonstrationVideoUrl = `${HF_DEMO_VIDEO_BASE}/demo.webm`
 const demo1ImageUrl = `${HF_DEMO_VIDEO_BASE}/01DHP.webm`
 const demo2ImageUrl = `${HF_DEMO_VIDEO_BASE}/02RCE.webm`
