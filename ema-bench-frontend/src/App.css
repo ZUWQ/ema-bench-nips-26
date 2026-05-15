@@ -169,7 +169,7 @@ h1 {
   hyphens: auto;
 }
 
-/* Overview figure: full viewport width; heading keeps page gutters */
+/* Overview figure: heading keeps page gutters; figure column width (image + caption) */
 section.overview.band {
   padding-left: 0;
   padding-right: 0;
@@ -178,6 +178,17 @@ section.overview.band {
 section.overview.band > .section-heading {
   padding-left: clamp(20px, 5vw, 72px);
   padding-right: clamp(20px, 5vw, 72px);
+}
+
+/* Figure + caption share one column width, aligned edges */
+.figure-block {
+  width: 60%;
+  max-width: 100%;
+  margin-inline: auto;
+}
+
+.figure-block + .figure-block {
+  margin-top: 36px;
 }
 
 .overview-image-wrap {
@@ -192,8 +203,18 @@ section.overview.band > .section-heading {
   height: auto;
 }
 
+.figure-placeholder {
+  margin-top: 14px;
+  color: #4e5355;
+  font-size: 15px;
+  line-height: 1.6;
+  text-align: justify;
+  text-align-last: left;
+  hyphens: auto;
+}
+
 .video-section,
-.findings,
+.environment-assets,
 .related-work {
   background: #f3f0e8;
 }

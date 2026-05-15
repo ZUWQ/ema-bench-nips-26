@@ -50,16 +50,18 @@
   }
 }
 
+html,
 body {
   margin: 0;
+  width: 100%;
+  overflow-x: clip;
 }
 
 #root {
-  width: 1126px;
-  max-width: 100%;
-  margin: 0 auto;
-  text-align: center;
-  border-inline: 1px solid var(--border);
+  width: 100%;
+  max-width: none;
+  margin: 0;
+  text-align: left;
   min-height: 100svh;
   display: flex;
   flex-direction: column;
