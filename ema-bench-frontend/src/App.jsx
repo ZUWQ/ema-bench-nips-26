@@ -4,10 +4,20 @@ import overviewImageUrl from './picture/overview.jpg?url'
 import agentframeworkImageUrl from './picture/framework.jpg?url'
 import environmentassetsImageUrl from './picture/assets_rooms.jpg?url'
 import npcassetsImageUrl from './picture/assets_npc.png?url'
-import demonstrationVideoUrl from './picture/demo.webm?url'
-import demo1ImageUrl from './picture/01DHP.webm?url'
-import demo2ImageUrl from './picture/02RCE.webm?url'
-import demo3ImageUrl from './picture/03IPD.webm?url'
+// Hugging Face: https://huggingface.co/datasets/<user>/<repo>/resolve/<revision>/<path>
+const HF_DEMO_VIDEO_BASE =
+  'https://huggingface.co/datasets/ZWQ1103/temp_video/resolve/main'
+
+const demonstrationVideoUrl = `${HF_DEMO_VIDEO_BASE}/demo.webm`
+const demo1ImageUrl = `${HF_DEMO_VIDEO_BASE}/01DHP.webm`
+const demo2ImageUrl = `${HF_DEMO_VIDEO_BASE}/02RCE.webm`
+const demo3ImageUrl = `${HF_DEMO_VIDEO_BASE}/03IPD.webm`
+
+// Local copies (use with Vite `import ... from './picture/xxx.webm?url'` if you bundle demos in-repo):
+// const demonstrationVideoUrl = new URL('./picture/demo.webm', import.meta.url).href
+// const demo1ImageUrl = new URL('./picture/01DHP.webm', import.meta.url).href
+// const demo2ImageUrl = new URL('./picture/02RCE.webm', import.meta.url).href
+// const demo3ImageUrl = new URL('./picture/03IPD.webm', import.meta.url).href
 
 const principles = [
   {
