@@ -39,17 +39,17 @@ const challenges = [
   {
     number: '01',
     title: 'Dynamic Hazard Processes',
-    body: 'The environment possesses an intrinsic engine that drives monotonic degradation independent of agent actions. [cite: 56]',
+    body: 'The environment possesses an intrinsic engine that drives monotonic degradation independent of agent actions.',
   },
   {
     number: '02',
     title: 'Rapidly Cumulative Escalation',
-    body: 'A "snowball effect" where hazard severity compounds over time; early delays result in disproportionately higher costs. [cite: 57, 60]',
+    body: 'A "snowball effect" where hazard severity compounds over time; early delays result in disproportionately higher costs.',
   },
   {
     number: '03',
     title: 'Interactive Path-Dependency',
-    body: "Future trajectories are not pre-determined but jointly reshaped by autonomous progression and agent interventions. [cite: 82]",
+    body: "Future trajectories are not pre-determined but jointly reshaped by autonomous progression and agent interventions.",
   },
 ]
 
@@ -236,6 +236,7 @@ function App() {
           <a href="#agent-environment-interaction">Agent-Environment Interaction</a>
           <a href="#environment-assets">Environment & Assets</a>
           <a href="#demonstration">Demonstration</a>
+          <a href="#simulator-comparison">Simulator Comparison</a>
         </nav>
       </header>
 
@@ -326,7 +327,7 @@ function App() {
               </article>
             ))}
           </div>
-          <div className="challenge-demos" id="demonstration">
+          <div className="challenge-demos" id="small_demo">
             <div className="challenge-demo-block" id="demonstration-fire">
               {/* <h4>Demonstration_fire</h4> */}
               <div className="video-frame video-frame--compact">
@@ -367,85 +368,13 @@ function App() {
         </div>
       </section>
 
-{/* Agent-Environment Interaction*/}
-      <section className="agent-environment-interaction band" id="agent-environment-interaction">
-        <div className="section-heading">
-          <h2>Agent&nbsp;-&nbsp;Environment&nbsp;Interaction</h2>
-        </div>
-        <div className="overview-image-wrap">
-          <img
-            src={agentframeworkImageUrl}
-            alt="EMA-Bench agent-environment interaction figure"
-            className="overview-image"
-            loading="lazy"
-            decoding="async"
-          />
-        </div>
-        <div className="content-split">
-           {/* [IMAGE: Insert Figure 2 - Overview of the agent-environment interaction [cite: 298]] */}
-           <div className="figure-placeholder">Figure 2: Overview of the agent–environment interaction. Each agent operates in a closed loop of perception, decision-making, action execution, and memory update, while sharing information with other agents.</div>
-           
-           {/* <div className="text-block">
-             <h3>Observation & Action Space</h3>
-             <p>
-               Agents perceive via <b>Visual Interface</b> (RGB-D frames) or <b>Symbolic Interface</b> (Object-centric metadata). [cite: 247, 248]
-               The action space includes 17 primitives across Navigation, Hazard Intervention, and Active Perception. [cite: 253, 268]
-             </p>
-           </div> */}
-        </div>
-      </section>
-
-{/* ENVIRONMENT & ASSETS*/}
-      <section className="findings band" id="environment-assets">
-        <div className="section-heading">
-          <h2>Environment&nbsp;&&nbsp;Assets</h2>
-        </div>
-        <div className="overview-image-wrap">
-          <img
-            src={environmentassetsImageUrl}
-            alt="EMA-Bench overview figure"
-            className="overview-image"
-            loading="lazy"
-            decoding="async"
-          />
-        </div>
-        <div className="figure-placeholder">Figure 4: Overview of EMA-Bench Environments. A 4 × 7 grid showcasing 28 base room variations across 7 functional categories. Each scene integrates high-fidelity assets, including 2 types of quadrupedal robots, 5 civilian models, and diverse combustible furniture. The combinatorial nature of these layouts, combined with randomized hazard and victim placement, ensures a vast and unpredictable task space.</div>
-        <div className="overview-image-wrap">
-          <img
-            src={npcassetsImageUrl}
-            alt="EMA-Bench NPC assets figure"
-            className="overview-image"
-            loading="lazy"
-            decoding="async"
-          />
-        </div>
-        <div className="figure-placeholder">Figure 5: Overview of Agent and NPC Assets. EMA-Bench features a heterogeneous set of interactive entities: (left) Five distinct civilian NPC models representing trapped victims, each integrated with dynamic health monitoring and surface soot accumulation effects to provide realistic visual-physical feedback during missions.(right) The rescue fleet consisting of the firefighting robot, specialized for active hazard suppression, and the rescue robot, optimized for rapid navigation and victim extraction.</div>
-
-      </section>
-
-      <section className="demonstration band" id="demonstration">
-        <div className="section-heading">
-          <h2>Demonstration</h2>
-        </div>
-        <div className="video-frame">
-          <video
-            src={demonstrationVideoUrl}
-            controls
-            playsInline
-            preload="metadata"
-            aria-label="EMA-Bench demonstration video"
-          />
-        </div>
-      </section>
-
 {/* Comparison Table — same chrome as Related work table */}
-      <section
-        className="related-work band"
-        id="simulator-comparison"
+<section
+        className="related-work band" id="simulator-comparison"
         aria-labelledby="simulator-comparison-heading"
       >
         <div className="section-heading">
-          <h2 id="simulator-comparison-heading">Simulator comparison</h2>
+          <h2>Simulator&nbsp;comparison</h2>
           <p className="eyebrow">Capabilities vs. related simulation platforms</p>
         </div>
         <div className="related-work-table-wrap">
@@ -519,33 +448,77 @@ function App() {
         </div>
       </section>
 
-
-      {/* <section className="findings band" id="findings">
+{/* Agent-Environment Interaction*/}
+      <section className="agent-environment-interaction band" id="agent-environment-interaction">
         <div className="section-heading">
-          <p className="eyebrow">Empirical Findings</p>
-          <h2>State-of-the-art agents remain brittle under urgency.</h2>
+          <h2>Agent&nbsp;&&nbsp;Environment Interaction</h2>
         </div>
-        <ul className="finding-list">
-          {findings.map((finding) => (
-            <li key={finding}>{finding}</li>
-          ))}
-        </ul>
+        <div className="overview-image-wrap">
+          <img
+            src={agentframeworkImageUrl}
+            alt="EMA-Bench agent-environment interaction figure"
+            className="overview-image"
+            loading="lazy"
+            decoding="async"
+          />
+        </div>
+        <div className="content-split">
+           {/* [IMAGE: Insert Figure 2 - Overview of the agent-environment interaction*/}
+           <div className="figure-placeholder">Figure 2: Overview of the agent–environment interaction. Each agent operates in a closed loop of perception, decision-making, action execution, and memory update, while sharing information with other agents.</div>
+           
+           {/* <div className="text-block">
+             <h3>Observation & Action Space</h3>
+             <p>
+               Agents perceive via <b>Visual Interface</b> (RGB-D frames) or <b>Symbolic Interface</b> (Object-centric metadata)
+               The action space includes 17 primitives across Navigation, Hazard Intervention, and Active Perception.
+             </p>
+           </div> */}
+        </div>
       </section>
 
-      <section className="contributions band" id="contributions">
+{/* ENVIRONMENT & ASSETS*/}
+      <section className="findings band" id="environment-assets">
         <div className="section-heading">
-          <p className="eyebrow">Contributions</p>
-          <h2>A reproducible benchmark for resilient embodied intelligence.</h2>
+          <h2>Environment&nbsp;&&nbsp;Assets</h2>
         </div>
-        <p className="lead">
-          EMA-Bench introduces a structured testbed for self-progressing fire
-          dynamics, time-sensitive objectives, irreversible state transitions,
-          and collaborative resource allocation. The benchmark exposes where
-          current multimodal foundation model-based agents fall short and
-          creates a foundation for future research on reliable disaster
-          response coordination.
-        </p>
-      </section> */}
+        <div className="overview-image-wrap">
+          <img
+            src={environmentassetsImageUrl}
+            alt="EMA-Bench overview figure"
+            className="overview-image"
+            loading="lazy"
+            decoding="async"
+          />
+        </div>
+        <div className="figure-placeholder">Figure 4: Overview of EMA-Bench Environments. A 4 × 7 grid showcasing 28 base room variations across 7 functional categories. Each scene integrates high-fidelity assets, including 2 types of quadrupedal robots, 5 civilian models, and diverse combustible furniture. The combinatorial nature of these layouts, combined with randomized hazard and victim placement, ensures a vast and unpredictable task space.</div>
+        <div className="overview-image-wrap">
+          <img
+            src={npcassetsImageUrl}
+            alt="EMA-Bench NPC assets figure"
+            className="overview-image"
+            loading="lazy"
+            decoding="async"
+          />
+        </div>
+        <div className="figure-placeholder">Figure 5: Overview of Agent and NPC Assets. EMA-Bench features a heterogeneous set of interactive entities: (left) Five distinct civilian NPC models representing trapped victims, each integrated with dynamic health monitoring and surface soot accumulation effects to provide realistic visual-physical feedback during missions.(right) The rescue fleet consisting of the firefighting robot, specialized for active hazard suppression, and the rescue robot, optimized for rapid navigation and victim extraction.</div>
+
+      </section>
+
+      <section className="demonstration band" id="demonstration">
+        <div className="section-heading">
+          <h2>Demonstration</h2>
+        </div>
+        <div className="video-frame">
+          <video
+            src={demonstrationVideoUrl}
+            controls
+            playsInline
+            preload="metadata"
+            aria-label="EMA-Bench demonstration video"
+          />
+        </div>
+      </section>
+
     </main>
   )
 }
