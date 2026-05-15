@@ -1,11 +1,8 @@
 [project]
-name = "tongsim"
+name = "ema-bench"
 dynamic = ["version"]
 description = "EMA-Bench: Python client for TongSim and EmbodiedMAS code for embodied multi-agent LLM/VLM evaluation."
 readme = "README.md"
-authors = [
-    { name = "wukunlun", email = "wukunlun@bigai.ai" }
-]
 requires-python = ">=3.12"
 dependencies = [
     "grpcio>=1.71.0",
