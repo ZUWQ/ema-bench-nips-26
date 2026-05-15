@@ -77,6 +77,151 @@ const findings = [
   'Short-horizon perception is stronger than sustained team-level strategy.',
 ]
 
+const comparisonData = [
+  {
+    simulator: "AI2-THOR",
+    autonomousDynamics: false,
+    irreversible: false,
+    partialObs: true,
+    heteroMAS: false,
+    dynamicIntervention: false,
+    llmVlmReady: "-",
+    fidelity: "Ultra",
+  },
+  {
+    simulator: "Habitat 3.0",
+    autonomousDynamics: true,
+    irreversible: false,
+    partialObs: true,
+    heteroMAS: true,
+    dynamicIntervention: false,
+    llmVlmReady: "-",
+    fidelity: "High",
+  },
+  {
+    simulator: "Habitat-MAS",
+    autonomousDynamics: false,
+    irreversible: false,
+    partialObs: false,
+    heteroMAS: true,
+    dynamicIntervention: false,
+    llmVlmReady: "LLM",
+    fidelity: "High",
+  },
+  {
+    simulator: "GRUtopia",
+    autonomousDynamics: true,
+    irreversible: false,
+    partialObs: true,
+    heteroMAS: true,
+    dynamicIntervention: false,
+    llmVlmReady: "LLM & VLM",
+    fidelity: "High",
+  },
+  {
+    simulator: "RoCoBench",
+    autonomousDynamics: false,
+    irreversible: false,
+    partialObs: false,
+    heteroMAS: true,
+    dynamicIntervention: false,
+    llmVlmReady: "LLM",
+    fidelity: "Mid",
+  },
+  {
+    simulator: "RFUniverse",
+    autonomousDynamics: false,
+    irreversible: true,
+    partialObs: false,
+    heteroMAS: false,
+    dynamicIntervention: false,
+    llmVlmReady: "-",
+    fidelity: "Ultra",
+  },
+  {
+    simulator: "VIKI-R",
+    autonomousDynamics: false,
+    irreversible: false,
+    partialObs: false,
+    heteroMAS: true,
+    dynamicIntervention: false,
+    llmVlmReady: "LLM & VLM",
+    fidelity: "High",
+  },
+  {
+    simulator: "Virtual Home",
+    autonomousDynamics: false,
+    irreversible: false,
+    partialObs: true,
+    heteroMAS: false,
+    dynamicIntervention: false,
+    llmVlmReady: "-",
+    fidelity: "Ultra",
+  },
+  {
+    simulator: "RoBoGen",
+    autonomousDynamics: false,
+    irreversible: false,
+    partialObs: false,
+    heteroMAS: false,
+    dynamicIntervention: false,
+    llmVlmReady: "LLM",
+    fidelity: "Ultra",
+  },
+  {
+    simulator: "Virtual Community",
+    autonomousDynamics: true,
+    irreversible: false,
+    partialObs: false,
+    heteroMAS: true,
+    dynamicIntervention: false,
+    llmVlmReady: "LLM",
+    fidelity: "Ultra",
+  },
+  {
+    simulator: "FD-Bench",
+    autonomousDynamics: true,
+    irreversible: true,
+    partialObs: true,
+    heteroMAS: false,
+    dynamicIntervention: false,
+    llmVlmReady: "LLM",
+    fidelity: "Symbolic",
+  },
+  {
+    simulator: "Hazard Challenge",
+    autonomousDynamics: true,
+    irreversible: true,
+    partialObs: true,
+    heteroMAS: false,
+    dynamicIntervention: false,
+    llmVlmReady: "LLM",
+    fidelity: "High",
+  },
+  {
+    simulator: "Crew-Wildfire",
+    autonomousDynamics: true,
+    irreversible: true,
+    partialObs: true,
+    heteroMAS: true,
+    dynamicIntervention: true,
+    llmVlmReady: "LLM",
+    fidelity: "Voxel",
+  },
+  {
+    simulator: "EMA-Bench",
+    autonomousDynamics: true,
+    irreversible: true,
+    partialObs: true,
+    heteroMAS: true,
+    dynamicIntervention: true,
+    llmVlmReady: "LLM & VLM",
+    fidelity: "Ultra",
+    ours: true,
+  },
+];
+
+
 function App() {
   return (
     <main>
@@ -134,12 +279,12 @@ function App() {
       </section>
 
 {/* Abstract*/}
-      <section className="abstract band">
+      <section className="abstract band" lang="en">
         <div className="section-heading">
           {/* <p className="eyebrow">Research Problem</p> */}
           <h2>Abstract</h2>
         </div>
-        <p className="lead">
+        <p className="lead abstract-lead">
         Embodied multi-agent systems are vital for high-risk disaster response, yet they struggle in dynamic environments characterized by rapidly hazard escalation and path-dependent dynamics. The rapid compounding of hazards in these settings demands a shift from reactive execution to proactive reasoning to effectively anticipate environmental dynamics. Furthermore, the extreme time sensitivity of these scenarios makes multi-agent cooperation a functional necessity, as agents must coordinate their efforts to prevent the disaster from outpacing the team's capacity. To address this, we introduce EMA-Bench, a high-fidelity simulation platform designed to evaluate multi-agent coordination within self-progressing fire. EMA-Bench facilitates interactions where agent actions directly influence the environmental progression under strict temporal urgency and partial observability. We propose a structured evaluation framework spanning foundational task execution, environmental exploration, and collaborative efficiency. Our empirical analysis of state-of-the-art multimodal foundation model-based agents highlights a significant deficiency in their ability to handle time-sensitive trade-offs and irreversible state transitions. These findings reveal a substantial gap in current embodied intelligence and establish a rigorous foundation for future research in resilient multi-agent coordination.
         </p>
       </section>
@@ -291,6 +436,88 @@ function App() {
           />
         </div>
       </section>
+
+{/* Comparison Table — same chrome as Related work table */}
+      <section
+        className="related-work band"
+        id="simulator-comparison"
+        aria-labelledby="simulator-comparison-heading"
+      >
+        <div className="section-heading">
+          <h2 id="simulator-comparison-heading">Simulator comparison</h2>
+          <p className="eyebrow">Capabilities vs. related simulation platforms</p>
+        </div>
+        <div className="related-work-table-wrap">
+          <table className="related-work-table related-work-table--comparison">
+            <caption className="related-work-caption">
+              Checkmarks indicate supported capability; em dash denotes not supported or not applicable.
+              Highlighted row: EMA-Bench (this work).
+            </caption>
+            <thead>
+              <tr>
+                <th scope="col">
+                  <span className="related-work-th-l1">Simulator</span>
+                  <br />
+                  <span className="related-work-th-l2">&nbsp;</span>
+                </th>
+                <th scope="col">
+                  <span className="related-work-th-l1">Autonomous</span>
+                  <br />
+                  <span className="related-work-th-l2">Dynamics</span>
+                </th>
+                <th scope="col">
+                  <span className="related-work-th-l1">Irreversible</span>
+                  <br />
+                  <span className="related-work-th-l2">&nbsp;</span>
+                </th>
+                <th scope="col">
+                  <span className="related-work-th-l1">Partial</span>
+                  <br />
+                  <span className="related-work-th-l2">Obs.</span>
+                </th>
+                <th scope="col">
+                  <span className="related-work-th-l1">Hetero-</span>
+                  <br />
+                  <span className="related-work-th-l2">MAS</span>
+                </th>
+                <th scope="col">
+                  <span className="related-work-th-l1">Dynamic</span>
+                  <br />
+                  <span className="related-work-th-l2">Intervention</span>
+                </th>
+                <th scope="col">
+                  <span className="related-work-th-l1">LLM &amp; VLM</span>
+                  <br />
+                  <span className="related-work-th-l2">Ready</span>
+                </th>
+                <th scope="col">
+                  <span className="related-work-th-l1">Fidelity</span>
+                  <br />
+                  <span className="related-work-th-l2">&nbsp;</span>
+                </th>
+              </tr>
+            </thead>
+            <tbody>
+              {comparisonData.map((item, idx) => (
+                <tr
+                  key={`${item.simulator}-${idx}`}
+                  className={item.ours ? 'related-work-table-row--ours' : undefined}
+                >
+                  <td>{item.simulator}</td>
+                  <td>{item.autonomousDynamics ? '✅' : '—'}</td>
+                  <td>{item.irreversible ? '✅' : '—'}</td>
+                  <td>{item.partialObs ? '✅' : '—'}</td>
+                  <td>{item.heteroMAS ? '✅' : '—'}</td>
+                  <td>{item.dynamicIntervention ? '✅' : '—'}</td>
+                  <td>{item.llmVlmReady}</td>
+                  <td>{item.fidelity}</td>
+                </tr>
+              ))}
+            </tbody>
+          </table>
+        </div>
+      </section>
+
 
       {/* <section className="findings band" id="findings">
         <div className="section-heading">

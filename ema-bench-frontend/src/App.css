@@ -152,9 +152,21 @@ h1 {
 }
 
 .overview,
+.abstract,
 .evaluation,
 .contributions {
   background: #fffdf7;
+}
+
+/* #root sets text-align: center (index.css); abstract body should be justified */
+.abstract .section-heading {
+  text-align: left;
+}
+
+.abstract .lead.abstract-lead {
+  text-align: justify;
+  text-align-last: left;
+  hyphens: auto;
 }
 
 /* Overview figure: full viewport width; heading keeps page gutters */
@@ -181,8 +193,99 @@ section.overview.band > .section-heading {
 }
 
 .video-section,
-.findings {
+.findings,
+.related-work {
   background: #f3f0e8;
+}
+
+.related-work-table-wrap {
+  max-width: 1180px;
+  margin: 0 auto;
+  overflow-x: auto;
+  border-radius: 8px;
+  border: 1px solid #dcd6cc;
+  background: #fffdf7;
+  box-shadow: 0 12px 36px rgba(28, 22, 14, 0.08);
+}
+
+.related-work-caption {
+  padding: 14px 18px 0;
+  caption-side: top;
+  text-align: left;
+  font-size: 14px;
+  line-height: 1.55;
+  color: #555b5f;
+}
+
+.related-work-table {
+  width: 100%;
+  min-width: 640px;
+  border-collapse: collapse;
+  font-size: 15px;
+  color: #222526;
+}
+
+.related-work-table th,
+.related-work-table td {
+  padding: 12px 16px;
+  text-align: left;
+  vertical-align: top;
+  border-bottom: 1px solid #e8e2d8;
+}
+
+.related-work-table thead th {
+  background: #f3f0e8;
+  font-weight: 800;
+  color: #151616;
+  white-space: nowrap;
+}
+
+.related-work-table tbody tr:last-child td {
+  border-bottom: none;
+}
+
+.related-work-table tbody tr:hover td {
+  background: rgba(196, 73, 50, 0.06);
+}
+
+/* Wide comparison matrix: center all but first column */
+.related-work-table--comparison {
+  min-width: 920px;
+}
+
+.related-work-table--comparison th:not(:first-child),
+.related-work-table--comparison td:not(:first-child) {
+  text-align: center;
+  vertical-align: middle;
+}
+
+.related-work-table--comparison thead th {
+  white-space: normal;
+  vertical-align: bottom;
+  line-height: 1.25;
+}
+
+.related-work-th-l1 {
+  display: inline-block;
+  font-weight: 800;
+}
+
+.related-work-th-l2 {
+  display: inline-block;
+  margin-top: 2px;
+  font-size: 12px;
+  font-weight: 700;
+  color: #5c625e;
+  letter-spacing: 0.02em;
+}
+
+.related-work-table-row--ours td {
+  background: rgba(196, 73, 50, 0.12);
+  font-weight: 700;
+}
+
+.related-work-table-row--ours:hover td {
+  background: rgba(196, 73, 50, 0.18);
 }
 
 .challenge {
